@@ -1,19 +1,24 @@
 package com.qa.models;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Entity
-@Table(name = "Exercises")
 public class Exercise {
 
     @Id
     @GeneratedValue(strategy =  GenerationType.AUTO)
     Long id;
+    String name;
+    String muscleGroup;
+    String description;
+    String tutorial;
 
-    private String name;
-    private String muscleGroup;
-    private String description;
-    private String tutorial;
+    public Exercise() {
+        super();
+    }
 
     public Exercise(String name, String muscleGroup, String description, String tutorial) {
         this.name = name;
@@ -21,6 +26,7 @@ public class Exercise {
         this.description = description;
         this.tutorial = tutorial;
     }
+
 
     public Long getId() {
         return id;
@@ -61,4 +67,12 @@ public class Exercise {
     public void setTutorial(String tutorial) {
         this.tutorial = tutorial;
     }
+
+    public void setExercise(Exercise exercise){
+        this.name = exercise.name;
+        this.muscleGroup = exercise.muscleGroup;
+        this.description = exercise.description;
+        this.tutorial = exercise.tutorial;
+    }
+
 }

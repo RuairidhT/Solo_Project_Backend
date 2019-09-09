@@ -4,6 +4,7 @@ package com.qa.controllers;
 import com.qa.models.Exercise;
 import com.qa.repository.ExerciseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -33,9 +34,14 @@ public class ExerciseController {
         return existing;
     }
 
-    @RequestMapping(value = "exercises/name/{name}", method = RequestMethod.GET)
-    public Exercise getNote(@PathVariable("name") String name){
-        return repository.findOne(name);
+    @Transactional
+    @RequestMapping(value = "exercises/{id}", method = RequestMethod.PUT)
+    public Exercise list(@RequestBody Exercise ex, @PathVariable Long id){
+        Exercise exercise = repository.findOne(id);
+        if (exercise != null) {
+            exercise.setExercise(ex);
+        }
+        return exercise;
     }
 
 }
