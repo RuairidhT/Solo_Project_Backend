@@ -33,9 +33,9 @@ public class ExerciseController {
         return existing;
     }
 
-//    @RequestMapping(value = "exercises/name/{name}", method = RequestMethod.GET)
-//    public Exercise getNote(@PathVariable("name") String name){
-//        return repository.findOne(name);
-//    }
+    @RequestMapping(value = "exercises/name/{name}", method = RequestMethod.GET)
+    public Exercise getNote(@PathVariable("name") String name){
+        return repository.findOne(name);
+    }
 
 }

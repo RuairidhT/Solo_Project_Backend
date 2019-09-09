@@ -1,20 +1,26 @@
 package com.qa.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@Table(name = "Exercises")
 public class Exercise {
 
     @Id
     @GeneratedValue(strategy =  GenerationType.AUTO)
     Long id;
-    String name;
-    String muscleGroup;
-    String description;
-    String tutorial;
+
+    private String name;
+    private String muscleGroup;
+    private String description;
+    private String tutorial;
+
+    public Exercise(String name, String muscleGroup, String description, String tutorial) {
+        this.name = name;
+        this.muscleGroup = muscleGroup;
+        this.description = description;
+        this.tutorial = tutorial;
+    }
 
     public Long getId() {
         return id;
