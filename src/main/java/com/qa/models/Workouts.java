@@ -3,8 +3,8 @@ package com.qa.models;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Exercises")
-public class Exercise {
+@Table(name = "Workouts")
+public class Workouts {
 
     @Id
     @GeneratedValue(strategy =  GenerationType.AUTO)
@@ -14,11 +14,11 @@ public class Exercise {
     String Description;
     String Tutorial;
 
-    public Exercise() {
+    public Workouts() {
         super();
     }
 
-    public Exercise(String name, String muscleGroup, String description, String tutorial) {
+    public Workouts(String name, String muscleGroup, String description, String tutorial) {
         this.Name = name;
         this.MuscleGroup = muscleGroup;
         this.Description = description;
@@ -66,11 +66,11 @@ public class Exercise {
         this.Tutorial = tutorial;
     }
 
-    public void setExercise(Exercise exercise){
-        this.Name = exercise.Name;
-        this.MuscleGroup = exercise.MuscleGroup;
-        this.Description = exercise.Description;
-        this.Tutorial = exercise.Tutorial;
+    public void setWorkouts(Workouts workouts){
+        this.Name = workouts.Name;
+        this.MuscleGroup = workouts.MuscleGroup;
+        this.Description = workouts.Description;
+        this.Tutorial = workouts.Tutorial;
     }
 
 }
