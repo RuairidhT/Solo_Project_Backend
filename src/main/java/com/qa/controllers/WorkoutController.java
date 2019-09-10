@@ -1,6 +1,5 @@
 package com.qa.controllers;
 
-import com.qa.models.Exercise;
 import com.qa.models.Workouts;
 import com.qa.repository.WorkoutRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,8 +43,5 @@ public class WorkoutController {
         }
         return workout;
     }
-
-}
-
 
 }
