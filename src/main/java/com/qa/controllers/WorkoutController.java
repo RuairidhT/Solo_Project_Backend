@@ -21,14 +21,19 @@ public class WorkoutController {
         return repository.findAll();
     }
 
+    @RequestMapping(value = "workouts/{id}", method = RequestMethod.GET)
+    public Workouts getWorkout(@PathVariable Long id){
+        return repository.findOne(id);
+    }
+
     @RequestMapping(value = "workouts", method = RequestMethod.POST)
-    public Workouts addNote(@RequestBody Workouts workouts) {
+    public Workouts addWorkout(@RequestBody Workouts workouts) {
         return repository.saveAndFlush(workouts);
     }
 
     //delete by ID
     @RequestMapping(value = "workouts/{id}", method = RequestMethod.DELETE)
-    public Workouts deleteNote(@PathVariable Long id) {
+    public Workouts deleteWorkout(@PathVariable Long id) {
         Workouts existing = repository.findOne(id);
         repository.delete(existing);
         return existing;
