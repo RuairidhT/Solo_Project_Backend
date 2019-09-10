@@ -41,7 +41,7 @@ public class WorkoutController {
 
     @Transactional
     @RequestMapping(value = "workouts/{id}", method = RequestMethod.PUT)
-    public Workouts list(@RequestBody Workouts workouts, @PathVariable Long id) {
+    public Workouts updateWorkout(@RequestBody Workouts workouts, @PathVariable Long id) {
         Workouts workout = repository.findOne(id);
         if (workout != null) {
             workout.setWorkouts(workouts);

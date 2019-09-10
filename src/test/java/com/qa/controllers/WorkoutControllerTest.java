@@ -88,4 +88,20 @@ public class WorkoutControllerTest {
         assertEquals(workoutController.addWorkout(workouts).getName(), "Ruairidh");
     }
 
+    @Test
+    public void TestUpdateWorkout(){
+
+        List<Workouts> workoutsList = new ArrayList<>();
+        Workouts workouts = new Workouts();
+        workouts.setDescription("blah");
+        workouts.setName("Ruairidh");
+        workoutsList.add(workouts);
+
+        Workouts workouts1 = new Workouts();
+        workouts1.setName("Chris");
+
+        when(repository.findOne(1l)).thenReturn(workouts);
+        assertEquals(workoutController.updateWorkout(workouts1, 1l).getName(), "Chris");
+    }
+
 }
