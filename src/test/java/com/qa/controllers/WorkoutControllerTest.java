@@ -45,7 +45,7 @@ public class WorkoutControllerTest {
         workoutsList.add(workouts);
 
         when(repository.findAll()).thenReturn(workoutsList);
-        assertEquals(workoutController.listAllWorkouts().get(0).getName(), "Ruairidh");
+        assertEquals(workoutController.listAllWorkouts().get(0).getDescription(), "blah");
     }
 
     @Test
@@ -66,12 +66,13 @@ public class WorkoutControllerTest {
 
         List<Workouts> workoutsList = new ArrayList<>();
         Workouts workouts = new Workouts();
+        workouts.setID(1l);
         workouts.setDescription("blah");
         workouts.setName("Ruairidh");
         workoutsList.add(workouts);
 
         when(repository.findOne(1l)).thenReturn(workouts);
-        assertEquals(workoutController.deleteWorkout(1l).getName(), "Ruairidh");
+        assertEquals(workoutController.deleteWorkout(1l).getID().toString(), "1");
 
     }
 
@@ -82,10 +83,10 @@ public class WorkoutControllerTest {
         Workouts workouts = new Workouts();
         workouts.setDescription("blah");
         workouts.setName("Ruairidh");
-
+        workouts.setTutorial("tutorial");
         when(repository.saveAndFlush(workouts)).thenReturn(workouts);
 
-        assertEquals(workoutController.addWorkout(workouts).getName(), "Ruairidh");
+        assertEquals(workoutController.addWorkout(workouts).getTutorial(), "tutorial");
     }
 
     @Test
@@ -93,15 +94,17 @@ public class WorkoutControllerTest {
 
         List<Workouts> workoutsList = new ArrayList<>();
         Workouts workouts = new Workouts();
+        workouts.setID(1l);
         workouts.setDescription("blah");
         workouts.setName("Ruairidh");
+        workouts.setMuscleGroup("abs");
+        workouts.setTutorial("tutorial");
         workoutsList.add(workouts);
 
-        Workouts workouts1 = new Workouts();
-        workouts1.setName("Chris");
+        Workouts workouts1 = new Workouts("rory", "arms", "descr", "efe");
 
         when(repository.findOne(1l)).thenReturn(workouts);
-        assertEquals(workoutController.updateWorkout(workouts1, 1l).getName(), "Chris");
+        assertEquals(workoutController.updateWorkout(workouts1, 1l).getMuscleGroup(), "arms");
     }
 
 }

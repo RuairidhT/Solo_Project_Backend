@@ -8,11 +8,11 @@ public class Workouts {
 
     @Id
     @GeneratedValue(strategy =  GenerationType.AUTO)
-    Long ID;
-    String Name;
-    String MuscleGroup;
-    String Description;
-    String Tutorial;
+    private Long ID;
+    private String Name;
+    private String MuscleGroup;
+    private String Description;
+    private String Tutorial;
 
     public Workouts() {
         super();

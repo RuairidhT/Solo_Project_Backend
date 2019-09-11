@@ -55,10 +55,11 @@ public class ExerciseControllerTest {
         Exercise exercise = new Exercise();
         exercise.setDescription("blah");
         exercise.setName("Ruairidh");
+        exercise.setMuscleGroup("arm");
         exerciseList.add(exercise);
 
         when(repository.findOne(1l)).thenReturn(exercise);
-        assertEquals(exerciseController.getExercise(1l).getName(), "Ruairidh");
+        assertEquals(exerciseController.getExercise(1l).getMuscleGroup(), "arm");
     }
 
     @Test
@@ -68,10 +69,11 @@ public class ExerciseControllerTest {
         Exercise exercise = new Exercise();
         exercise.setDescription("blah");
         exercise.setName("Ruairidh");
+        exercise.setTutorial("tut");
         exerciseList.add(exercise);
 
         when(repository.findOne(1l)).thenReturn(exercise);
-        assertEquals(exerciseController.deleteExercise(1l).getName(), "Ruairidh");
+        assertEquals(exerciseController.deleteExercise(1l).getTutorial(), "tut");
 
     }
 
@@ -82,10 +84,11 @@ public class ExerciseControllerTest {
         Exercise exercise = new Exercise();
         exercise.setDescription("blah");
         exercise.setName("Ruairidh");
+        exercise.setID(1l);
 
         when(repository.saveAndFlush(exercise)).thenReturn(exercise);
 
-        assertEquals(exerciseController.addExercise(exercise).getName(), "Ruairidh");
+        assertEquals(exerciseController.addExercise(exercise).getID().toString(), "1");
     }
 
     @Test
@@ -93,15 +96,17 @@ public class ExerciseControllerTest {
 
         List<Exercise> exerciseList = new ArrayList<>();
         Exercise exercise = new Exercise();
+        exercise.setID(1l);
         exercise.setDescription("blah");
         exercise.setName("Ruairidh");
+        exercise.setMuscleGroup("abs");
+        exercise.setTutorial("tutorial");
         exerciseList.add(exercise);
 
-        Exercise exercise1 = new Exercise();
-        exercise1.setName("Chris");
+        Exercise exercise1 = new Exercise("rory", "arms", "descr", "efe");
 
         when(repository.findOne(1l)).thenReturn(exercise);
-        assertEquals(exerciseController.updateExercise(exercise1, 1l).getName(), "Chris");
+        assertEquals(exerciseController.updateExercise(exercise1, 1l).getDescription(),  "descr");
     }
 
 }
