@@ -2,7 +2,6 @@ package com.qa.controllers;
 
 
 import com.qa.models.Exercise;
-import com.qa.models.Workouts;
 import com.qa.repository.ExerciseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
@@ -32,7 +31,6 @@ public class ExerciseController {
         return repository.saveAndFlush(exercise);
     }
 
-    //delete by ID
     @RequestMapping(value = "exercises/{id}", method = RequestMethod.DELETE)
     public Exercise deleteExercise(@PathVariable Long id){
         Exercise existing = repository.findOne(id);

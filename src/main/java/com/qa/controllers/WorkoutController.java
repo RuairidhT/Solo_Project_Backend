@@ -31,7 +31,6 @@ public class WorkoutController {
         return repository.saveAndFlush(workouts);
     }
 
-    //delete by ID
     @RequestMapping(value = "workouts/{id}", method = RequestMethod.DELETE)
     public Workouts deleteWorkout(@PathVariable Long id) {
         Workouts existing = repository.findOne(id);

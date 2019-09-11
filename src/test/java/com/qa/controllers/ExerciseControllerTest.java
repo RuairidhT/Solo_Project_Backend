@@ -1,9 +1,7 @@
 package com.qa.controllers;
 
 import com.qa.models.Exercise;
-import com.qa.models.Workouts;
 import com.qa.repository.ExerciseRepository;
-import com.qa.repository.WorkoutRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
