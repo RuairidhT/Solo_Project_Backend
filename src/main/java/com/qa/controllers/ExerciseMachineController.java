@@ -82,13 +82,4 @@ public class ExerciseMachineController {
         return existing;
     }
 
-    @Transactional
-    @RequestMapping(value = "exerciseMachine/{id}", method = RequestMethod.PUT)
-    public ExerciseMachine updateExerciseMachine(@RequestBody ExerciseMachine exerciseMachine, @PathVariable Long id) {
-        ExerciseMachine exercise = repository.findOne(id);
-        if (exercise != null) {
-            exercise.setExerciseMachine(exerciseMachine);
-        }
-        return exercise;
-    }
 }

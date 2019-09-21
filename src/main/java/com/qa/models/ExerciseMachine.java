@@ -44,9 +44,4 @@ public class ExerciseMachine {
     public void setMachine_id(Long machine_id) {
         this.machine_id = machine_id;
     }
-
-    public void setExerciseMachine(ExerciseMachine exerciseMachine){
-        this.exercise_id = exerciseMachine.exercise_id;
-        this.machine_id = exerciseMachine.machine_id;
-    }
 }
