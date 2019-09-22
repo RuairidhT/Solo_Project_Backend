@@ -75,9 +75,15 @@ public class ExerciseMachineController {
         return repository.saveAndFlush(exerciseMachine);
     }
 
-    @RequestMapping(value = "exerciseMachine/{id}", method = RequestMethod.DELETE)
-    public ExerciseMachine deleteExerciseMachine(@PathVariable Long id) {
-        ExerciseMachine existing = repository.findOne(id);
+    @RequestMapping(value = "exerciseMachine/{exerciseId}/{machineId}", method = RequestMethod.DELETE)
+    public ExerciseMachine deleteExerciseMachine(@PathVariable Long exerciseId, @PathVariable Long machineId) {
+        ExerciseMachine existing = null;
+        List<ExerciseMachine> exerciseMachineList = repository.findAll();
+        for (int i = 0; i < exerciseMachineList.size(); i++) {
+            if(exerciseId.equals(exerciseMachineList.get(i).getExercise_id()) && machineId.equals(exerciseMachineList.get(i).getMachine_id())){
+                existing = exerciseMachineList.get(i);
+            }
+        }
         repository.delete(existing);
         return existing;
     }
