@@ -36,7 +36,7 @@ public class MachineControllerTest {
 
 
     @Test
-    public void testGetAllWorkout() {
+    public void testGetAllMachines() {
 
         List<Machine> machineList = new ArrayList<>();
         Machine machine = new Machine();
@@ -49,7 +49,7 @@ public class MachineControllerTest {
     }
 
     @Test
-    public void testGetOneWorkout() {
+    public void testGetOneMachine() {
 
         List<Machine> machineList = new ArrayList<>();
         Machine machine = new Machine();
@@ -57,27 +57,27 @@ public class MachineControllerTest {
         machine.setName("Ruairidh");
         machineList.add(machine);
 
-        when(repository.findOne(1l)).thenReturn(machine);
-        assertEquals(machineController.getMachine(1l).getName(), "Ruairidh");
+        when(repository.findOne(1L)).thenReturn(machine);
+        assertEquals(machineController.getMachine(1L).getName(), "Ruairidh");
     }
 
     @Test
-    public void testDeleteWorkout(){
+    public void testDeleteMachine(){
 
         List<Machine> machineList = new ArrayList<>();
         Machine machine = new Machine();
-        machine.setID(1l);
+        machine.setID(1L);
         machine.setDescription("blah");
         machine.setName("Ruairidh");
         machineList.add(machine);
 
-        when(repository.findOne(1l)).thenReturn(machine);
-        assertEquals(machineController.deleteMachine(1l).getID().toString(), "1");
+        when(repository.findOne(1L)).thenReturn(machine);
+        assertEquals(machineController.deleteMachine(1L).getID().toString(), "1");
 
     }
 
     @Test
-    public void TestAddWorkout(){
+    public void TestAddMachine(){
 
         List<Machine> machineList = new ArrayList<>();
         Machine machine = new Machine();
@@ -90,19 +90,19 @@ public class MachineControllerTest {
     }
 
     @Test
-    public void TestUpdateWorkout(){
+    public void TestUpdateMachine(){
 
         List<Machine> machineList = new ArrayList<>();
         Machine machine = new Machine();
-        machine.setID(1l);
+        machine.setID(1L);
         machine.setDescription("blah");
         machine.setName("Ruairidh");
         machineList.add(machine);
 
         Machine machine1 = new Machine("rory", "test");
 
-        when(repository.findOne(1l)).thenReturn(machine);
-        assertEquals(machineController.updateMachine(machine1, 1l).getName(), "rory");
+        when(repository.findOne(1L)).thenReturn(machine);
+        assertEquals(machineController.updateMachine(machine1, 1L).getName(), "rory");
     }
 
 }
