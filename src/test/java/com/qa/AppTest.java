@@ -8,5 +8,6 @@ public class AppTest
     public void shouldAnswerWithTrue()
     {
         App app = new App();
+        app.main(new String[]{});
     }
 }

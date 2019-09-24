@@ -101,7 +101,7 @@ public class ExerciseMachineControllerTest {
         machine.setDescription("blah");
         machine.setName("Ruairidh");
         machineList.add(machine);
-        when(machineRepository.saveAndFlush(machine)).thenReturn(machine);
+        machineRepository.saveAndFlush(machine);
 
         List<ExerciseMachine> exerciseMachineList = new ArrayList<>();
         ExerciseMachine exerciseMachine = new ExerciseMachine();
